@@ -1,14 +1,34 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-navbar *navbar>
+  <ion-title>
+    Home
+  </ion-title>
+</ion-navbar>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class="home">
+  <ion-card>
+    <ion-card-content>
+      Hello World, this is my camera app
+      <button (click)="mediaOption()">Take a Picture</button>
+      Latest Picture:
+      <img [src]="base64Image?base64Image:myImage.image"/>
+    </ion-card-content> 
+  </ion-card>
+  <button ion-button (click)="uploadPic()">upload</button>
+  <button ion-button (click)="scan()">Scan</button>
+  <button ion-button (click)="download()">Download</button>
+  <input  type="file" (change)="selectFile($event)">
+  <button ion-button (click)="docSubmit()">upload file</button>
+
+  <ion-item>
+    <ion-label fixed>Username</ion-label>
+    <ion-input type="text" [(ngModel)]="text"></ion-input>
+  </ion-item>
+  <button ion-button (click)="speak()">submit</button>
+
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+<ion-list>
+  <ion-item *ngFor="let item of items">
+    {{ item }}
+  </ion-item>
+</ion-list>
 </ion-content>
