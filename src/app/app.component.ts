@@ -41,7 +41,7 @@ export class MyApp {
     }
 
     gologin(){
-      this.rootPage=HomePage
+      this.rootPage=MapPage
     }
  
 }
